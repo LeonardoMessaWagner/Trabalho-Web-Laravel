@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('punicaos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('matricula')->unique();
-            $table->boolean('funcionario')->nullable();
-            $table->boolean('aluno')->nullable();
-            $table->rememberToken();
+            $table->text('descricao');
+            $table->unsignedBigInteger('punido_id');
+            $table->unsignedBigInteger('ocorrencia_id');
+            $table->foreign('punido_id')->references('id')->on('users');
+            $table->foreign('ocorrencia_id')->references('id')->on('ocorrencias');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('punicaos');
     }
 };
