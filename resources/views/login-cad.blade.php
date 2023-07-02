@@ -4,7 +4,7 @@
     <br>
     <div class="row">
         <link rel="stylesheet" href="{{ URL::asset('assets/css-login.css') }}" />
-        <div class="col-8 m-auto">
+        <div class="col-4 m-auto">
             <div class="card">
                 <div id="login-title" class="card-header  text-center">
                     Entrar
@@ -32,8 +32,8 @@
                     </form>
                 </div>
                 <div class="card-footer text-muted text-center">
-                    Não tem uma conta?
-                    <a class="btn btn-primary"> Cadastre-se!</a>
+                    Não tem uma conta?<br>
+                    <a class="btn btn-primary" href="{{route('cad')}}"> Cadastre-se!</a>
                 </div>
             </div>
         </div>

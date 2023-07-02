@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <html>
@@ -56,7 +58,9 @@
         </div>
     </nav>
     <div class="container">
+    @include('sweetalert::alert')
         @yield('login-cad')
+        @yield('cad')
 
     </div>
 
