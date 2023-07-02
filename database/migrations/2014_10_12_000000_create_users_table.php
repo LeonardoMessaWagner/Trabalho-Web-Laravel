@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('matricula')->unique();
             $table->boolean('funcionario')->nullable();
             $table->boolean('aluno')->nullable();
+            $table->boolean('confirmado');
             $table->rememberToken();
             $table->timestamps();
         });
