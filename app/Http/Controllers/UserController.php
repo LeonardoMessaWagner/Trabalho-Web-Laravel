@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -35,5 +36,30 @@ class UserController extends Controller
             return redirect()->route('home');
 
         }
+    }
+
+    function login(Request $request)
+    {
+        $request->validate([
+            'email' => ['required'],
+            'password' => ['required'],
+        ], [
+            'email.required' => 'O Email é obrigatório',
+            'password.required' => 'A Senha é obrigatória',
+        ]);
+        $credenciais = $request->only('email', 'password');
+        if (Auth::attempt($credenciais)) {
+            $request->session()->regenerate();
+            Alert::success("Tudo certo!", "Bem Vindo " . Auth::user()->nome);
+
+
+            return redirect()->route('home');
+        }
+    }
+
+    function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 }

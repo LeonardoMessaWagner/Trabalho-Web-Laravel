@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light" style="background: #dbd8e3;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src="https://img.icons8.com/?size=512&id=84005&format=png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
             aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -32,7 +32,6 @@
 
         <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,17 +42,30 @@
                         <a class="dropdown-item" href="#">Lista de Ocorrencias</a>
                     </div>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Sair</a>
-                </li>
+                @if (Auth::user())
+                    <li class="nav-item">
+                        <a class="btn btn-danger" href="{{route('logout')}}"> Sair </a>
+                @endif
+
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar aluno" aria-label="Pesquisar">
+                <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg></i>
+                </button>
+            </form>
         </div>
     </nav>
-    
+
 
     @include('sweetalert::alert')
     @yield('login-cad')
     @yield('cad')
+    @yield('admin')
 
 
 

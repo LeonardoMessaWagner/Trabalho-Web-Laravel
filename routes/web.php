@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\RotasController::class,'rota_raiz'])->name('home');
+Route::get('/', [App\Http\Controllers\RotasController::class, 'rota_raiz'])->name('home');
 
-Route::get('/cad_user', [App\Http\Controllers\RotasController::class,'rota_cad_user'])->name('cad');
+Route::get('/cad_user', [App\Http\Controllers\RotasController::class, 'rota_cad_user'])->name('cad');
 
-Route::post('/cad_users_back', [App\Http\Controllers\UserController::class,'cad_users'])->name('cadastra_users_back_end');
+Route::post('/cad_users_back', [App\Http\Controllers\UserController::class, 'cad_users'])->name('cadastra_users_back_end');
 
+Route::post('/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
+
+Route::get('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');

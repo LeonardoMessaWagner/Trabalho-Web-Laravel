@@ -20,6 +20,8 @@ return new class extends Migration
             $table->boolean('funcionario')->nullable();
             $table->boolean('aluno')->nullable();
             $table->boolean('confirmado');
+            $table->boolean('admin')->nullable();
+
             $table->rememberToken();
             $table->timestamps();
         });
