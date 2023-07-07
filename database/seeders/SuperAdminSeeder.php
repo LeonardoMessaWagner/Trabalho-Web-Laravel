@@ -16,7 +16,7 @@ class SuperAdminSeeder extends Seeder
         $admin = new User();
         $admin->nome = "Super Administrador";
         $admin->email = "admin@example.com";
-        $admin->password = bcrypt("senha");
+        $admin->password = bcrypt('12345678');
         $admin->matricula = "12345678";
         $admin->admin = 1;
         $admin->confirmado = 1;

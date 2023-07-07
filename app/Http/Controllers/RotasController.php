@@ -11,7 +11,7 @@ class RotasController extends Controller
     function rota_raiz()
     {
         if (Auth::user() && Auth::user()->admin === 1) {
-
+            return view('admin');
         } else {
             return view('login-cad');
         }

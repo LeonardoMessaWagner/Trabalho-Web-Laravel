@@ -31,7 +31,7 @@
 
 
                     <div class="mt-3 d-grid px-3">
-                        <button class="btn btn-primary btn-block btn-signup text-uppercase">
+                        <button type="submit" class="btn btn-primary btn-block btn-signup text-uppercase">
                             <span>Entrar</span>
 
                         </button>

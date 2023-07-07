@@ -47,12 +47,19 @@ class UserController extends Controller
             'email.required' => 'O Email é obrigatório',
             'password.required' => 'A Senha é obrigatória',
         ]);
-
-        if (Auth::attempt($request->only('email', 'password'))) {
+        $credenciais = $request->only('email', 'password');
+        if (Auth::attempt($credenciais)) {
             $request->session()->regenerate();
             Alert::success("Tudo certo!", "Bem Vindo " . Auth::user()->nome);
+
+
             return redirect()->route('home');
         }
+    }
 
+    function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 }
